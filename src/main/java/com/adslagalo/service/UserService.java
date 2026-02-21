@@ -20,7 +20,7 @@ public class UserService {
     public User registerUser(User user) {
 
         if (userRepository.findByEmail(user.getEmail()).isPresent()) {
-            throw new RuntimeException("Email already registered");
+            throw new IllegalArgumentException("Email already registered");
         }
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));

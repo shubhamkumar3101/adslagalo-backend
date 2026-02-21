@@ -2,6 +2,7 @@ package com.adslagalo.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import com.adslagalo.entity.Role;
 
 @Entity
 @Table(name = "users")
@@ -25,6 +26,7 @@ public class User {
     @Column(nullable = false)
     private String password;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private String role;   // ADMIN, CLIENT, RESELLER
+    private Role role;
 }
